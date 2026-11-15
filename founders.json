@@ -1,0 +1,104 @@
+{
+  "domain": "https://cards.cynocor.com",
+  "website": "https://cynocor.com",
+  "company": "CYNOCOR",
+  "company_email": "cynocorofficial@gmail.com",
+  "people": [
+    {
+      "slug": "chanul",
+      "first": "Chanul",
+      "last": "Dilhara",
+      "title": "Co-Founder",
+      "bio": "Leads product direction and technical architecture. Chanul ensures that every CYNOCOR system is scoped correctly and designed to scale seamlessly from day one.",
+      "photo": "photos-src/chanul.jpg",
+      "phone": "+94742321760",
+      "email": "rmcdilhara123@gmail.com",
+      "links": {
+        "LinkedIn": "https://www.linkedin.com/in/chanul-dilhara-0a35a6379/",
+        "Instagram": "https://www.instagram.com/chanul_dilhara_/",
+        "Facebook": "https://www.facebook.com/chanul.dilhara"
+      },
+      "role": "Product Direction & Technical Architecture"
+    },
+    {
+      "slug": "ravindu",
+      "first": "Ravindu",
+      "last": "Umapathi",
+      "title": "Co-Founder",
+      "bio": "Drives business development and strategic planning. Ravindu connects our deep technical engineering work to your real-world market growth and ROI.",
+      "photo": "photos-src/ravindu.png",
+      "phone": "+94761256452",
+      "email": "ravinduumapathi411@gmail.com",
+      "links": {
+        "LinkedIn": "https://www.linkedin.com/in/ravindu-umapathi-mathara-arachchi-783aba2aa/",
+        "Instagram": "https://www.instagram.com/ravindu_umapathi",
+        "Facebook": "https://www.facebook.com/share/1JmqyWnsUU/"
+      },
+      "role": "Business Development & Strategy"
+    },
+    {
+      "slug": "chamupathi",
+      "first": "Chamupathi",
+      "last": "Dewdunu",
+      "title": "Co-Founder",
+      "bio": "I'm Chamupathi, co-founder of CYNOCOR. I focus on systems engineering and cloud infrastructure, making sure what we build is stable, secure and ready to scale. Let's talk about your project.",
+      "photo": "photos-src/chamupathi.jpg",
+      "phone": "+94779987440",
+      "email": "chamupathidewdunu@gmail.com",
+      "links": {
+        "LinkedIn": "https://www.linkedin.com/in/chamupathi-dewdunu/",
+        "Instagram": "https://www.instagram.com/chamupathi_dewdunu/",
+        "Facebook": "https://www.facebook.com/share/14nPkGvaNuu/"
+      },
+      "role": "Systems Engineering & Cloud Infrastructure"
+    },
+    {
+      "slug": "amanya",
+      "first": "Amanya",
+      "last": "Rubasinghe",
+      "title": "Product Experience & UI Design",
+      "bio": "Shapes the product experience and UI design across all platforms. Amanya ensures that complex backend systems remain flawlessly usable and human-centric.",
+      "photo": "photos-src/amanya.jpeg",
+      "phone": "+94701455110",
+      "email": "amanyarubasinghe15@gmail.com",
+      "links": {
+        "LinkedIn": "https://www.linkedin.com/in/amanyarubasinghe/",
+        "Instagram": "https://www.instagram.com/amanya_rubasinghe",
+        "Facebook": "https://www.facebook.com/share/194T1x9VCX/"
+      },
+      "role": ""
+    },
+    {
+      "slug": "thejana",
+      "first": "Thejana",
+      "last": "Thathsara",
+      "title": "Cybersecurity Operations",
+      "bio": "Leads cybersecurity operations, vulnerability management, and digital infrastructure defense. Thejana ensures that all CYNOCOR systems and deployed platforms remain robust, resilient, and secure against modern threats.",
+      "photo": "photos-src/thejana.png",
+      "phone": "",
+      "email": "",
+      "links": {
+        "GitHub": "https://github.com/Bl4ckDr4gon",
+        "Instagram": "https://www.instagram.com/thejanathathsara/",
+        "Facebook": "https://www.facebook.com/profile.php?id=61595557056251"
+      },
+      "role": ""
+    },
+    {
+      "slug": "ashendra",
+      "first": "Ashendra",
+      "last": "Liyanage",
+      "title": "Quality Assurance & Release Reliability",
+      "bio": "Leads quality assurance, testing protocols, and release reliability. Ashendra systematically audits software workflows and system interfaces to ensure all CYNOCOR builds perform flawlessly under real-world conditions.",
+      "photo": "photos-src/ashendra.jpg",
+      "phone": "+94715779090",
+      "email": "ashendra76@gmail.com",
+      "links": {
+        "LinkedIn": "https://www.linkedin.com/in/ashendra-neththaru-022578371",
+        "Instagram": "https://www.instagram.com/ashendra.__",
+        "Facebook": "https://www.facebook.com/share/1K7E45nyR1/"
+      },
+      "role": ""
+    }
+  ]
+}

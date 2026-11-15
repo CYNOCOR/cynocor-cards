@@ -1,0 +1,418 @@
+/* ─── CYNOCOR HOLOGRAPHIC NEURAL PRELOADER ─────────────────── */
+.cyno-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(65% 55% at 58% 44%, rgba(0, 112, 255, 0.1) 0%, transparent 70%),
+    radial-gradient(45% 45% at 25% 75%, rgba(56, 189, 248, 0.08) 0%, transparent 70%),
+    linear-gradient(155deg, #DCE3EE 0%, #EDF2F8 52%, #D7DFEC 100%);
+  color: #0B0F19;
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0px);
+  transition: opacity .9s cubic-bezier(0.16, 1, 0.3, 1), transform .9s cubic-bezier(0.16, 1, 0.3, 1), filter .9s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.cyno-loader.is-dark {
+  background:
+    radial-gradient(65% 55% at 58% 44%, rgba(0, 112, 255, 0.22) 0%, transparent 70%),
+    radial-gradient(45% 45% at 25% 75%, rgba(56, 189, 248, 0.12) 0%, transparent 70%),
+    linear-gradient(155deg, #060911 0%, #0A1120 55%, #070C18 100%);
+  color: #F8FAFC;
+}
+
+.cyno-loader.is-leaving {
+  opacity: 0;
+  transform: scale(1.035);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.cyno-loader-graphics {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  animation: cynoLoaderGraphicsIn 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
+}
+
+@keyframes cynoLoaderGraphicsIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.cyno-loader-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 112, 255, 0.16);
+}
+
+.cyno-loader.is-dark .cyno-loader-ring {
+  border-color: rgba(56, 189, 248, 0.18);
+}
+
+.cyno-loader-ring--outer {
+  width: min(76vw, 680px);
+  height: min(76vw, 680px);
+  animation: cynoLoaderSpinSlow 36s linear infinite;
+}
+
+.cyno-loader-ring--inner {
+  width: min(50vw, 440px);
+  height: min(50vw, 440px);
+  border-style: solid;
+  border-color: rgba(0, 112, 255, 0.09);
+  animation: cynoLoaderSpinSlow 24s linear reverse infinite;
+}
+
+.cyno-loader.is-dark .cyno-loader-ring--inner {
+  border-color: rgba(56, 189, 248, 0.11);
+}
+
+.cyno-loader-crosshair {
+  position: absolute;
+  width: min(84vw, 760px);
+  height: min(84vw, 760px);
+}
+
+.cyno-loader-crosshair::before,
+.cyno-loader-crosshair::after {
+  content: '';
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(0, 112, 255, 0.14), transparent);
+}
+
+.cyno-loader-crosshair::before {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+.cyno-loader-crosshair::after {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(0, 112, 255, 0.14), transparent);
+}
+
+.cyno-loader.is-dark .cyno-loader-crosshair::before {
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.16), transparent);
+}
+
+.cyno-loader.is-dark .cyno-loader-crosshair::after {
+  background: linear-gradient(180deg, transparent, rgba(56, 189, 248, 0.16), transparent);
+}
+
+.cyno-loader-node {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(0, 112, 255, 0.55);
+  box-shadow: 0 0 12px rgba(0, 112, 255, 0.45);
+  animation: cynoLoaderNodeDrift 6s ease-in-out infinite;
+}
+
+.cyno-loader.is-dark .cyno-loader-node {
+  background: rgba(56, 189, 248, 0.72);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.65);
+}
+
+.cyno-loader-node.n1 { top: 22%; left: 18%; animation-delay: 0s; }
+.cyno-loader-node.n2 { top: 28%; right: 20%; width: 4px; height: 4px; animation-delay: 1.1s; }
+.cyno-loader-node.n3 { bottom: 26%; left: 22%; width: 4px; height: 4px; animation-delay: 2.2s; }
+.cyno-loader-node.n4 { bottom: 22%; right: 17%; animation-delay: 0.7s; }
+.cyno-loader-node.n5 { top: 18%; left: 52%; width: 3px; height: 3px; animation-delay: 1.8s; }
+.cyno-loader-node.n6 { bottom: 18%; left: 48%; width: 3px; height: 3px; animation-delay: 2.8s; }
+
+@keyframes cynoLoaderSpinSlow {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes cynoLoaderNodeDrift {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.45; }
+  50% { transform: translateY(-10px) scale(1.35); opacity: 0.95; }
+}
+
+.cyno-loader-bg-word {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(4.5rem, 18.5vw, 17.5rem);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 0.9;
+  color: rgba(11, 20, 38, 0.068);
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  filter: blur(16px);
+  transform: scale(1.12);
+  animation:
+    cynoLoaderBgIn 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards,
+    cynoLoaderWordPulse 5.6s ease-in-out 1.4s infinite;
+}
+
+.cyno-loader.is-dark .cyno-loader-bg-word {
+  color: rgba(180, 215, 255, 0.06);
+  text-shadow: 0 0 60px rgba(0, 112, 255, 0.14);
+}
+
+@keyframes cynoLoaderBgIn {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    letter-spacing: -0.055em;
+    transform: scale(1);
+  }
+}
+
+@keyframes cynoLoaderWordPulse {
+  0%, 100% { transform: scale(1); opacity: 0.94; }
+  50% { transform: scale(1.018); opacity: 1; }
+}
+
+.cyno-loader-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cyno-loader-scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 112, 255, 0.025) 0px,
+    rgba(0, 112, 255, 0.025) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  opacity: 0.55;
+}
+
+.cyno-loader-center {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 1120px;
+}
+
+.cyno-loader-tagline {
+  margin: 0;
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(2.6rem, 8vw, 6.8rem);
+  font-weight: 500;
+  letter-spacing: -0.048em;
+  line-height: 1.02;
+  color: #0B0F19;
+  text-shadow: 0 2px 24px rgba(237, 242, 248, 0.85);
+  animation: cynoLoaderFloat 4.8s ease-in-out 1.8s infinite;
+}
+
+.cyno-loader.is-dark .cyno-loader-tagline {
+  color: #F8FAFC;
+  text-shadow: 0 4px 32px rgba(6, 9, 17, 0.9), 0 0 28px rgba(56, 189, 248, 0.18);
+}
+
+.cyno-loader-word {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(32px) scale(0.93);
+  animation: cynoLoaderWordIn .8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cyno-loader-word:nth-child(1) { animation-delay: .45s; }
+.cyno-loader-word:nth-child(2) { animation-delay: .8s; }
+.cyno-loader-word:nth-child(3) { animation-delay: 1.15s; }
+
+.cyno-loader-word--accent {
+  position: relative;
+  font-weight: 700;
+  background: linear-gradient(120deg, #0B0F19 15%, #0070FF 50%, #38BDF8 70%, #0B0F19 95%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation:
+    cynoLoaderWordIn 1.3s cubic-bezier(0.16, 1, 0.3, 1) 2.1s forwards,
+    cynoLoaderShimmer 3.4s ease-in-out 2.9s infinite;
+}
+
+.cyno-loader.is-dark .cyno-loader-word--accent {
+  background: linear-gradient(120deg, #FFFFFF 15%, #38BDF8 50%, #2684FF 70%, #FFFFFF 95%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes cynoLoaderWordIn {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cynoLoaderFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes cynoLoaderShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.cyno-loader-pill {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 28px rgba(15, 35, 75, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #0F172A;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: cynoLoaderWordIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.52s forwards;
+}
+
+.cyno-loader.is-dark .cyno-loader-pill {
+  background: rgba(13, 22, 42, 0.78);
+  border-color: rgba(56, 189, 248, 0.28);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 24px rgba(0, 112, 255, 0.18);
+  color: #E2E8F0;
+}
+
+.cyno-loader-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0070FF;
+  box-shadow: 0 0 10px rgba(0, 112, 255, 0.8);
+  animation: cynoLoaderDotPulse 1.2s ease-in-out infinite;
+}
+
+.cyno-loader.is-dark .cyno-loader-dot {
+  background: #38BDF8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
+}
+
+@keyframes cynoLoaderDotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.6; }
+}
+
+.cyno-loader-pct {
+  font-variant-numeric: tabular-nums;
+  color: #0070FF;
+  font-weight: 700;
+}
+
+.cyno-loader.is-dark .cyno-loader-pct {
+  color: #38BDF8;
+}
+
+.cyno-loader-meta {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.55);
+}
+
+.cyno-loader.is-dark .cyno-loader-meta {
+  color: rgba(226, 232, 240, 0.55);
+}
+
+.cyno-loader-skip {
+  position: absolute;
+  bottom: 24px;
+  right: 28px;
+  z-index: 5;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  background: rgba(255, 255, 255, 0.55);
+  color: rgba(15, 23, 42, 0.7);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.cyno-loader-skip:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #0070FF;
+  transform: translateY(-1px);
+}
+
+.cyno-loader.is-dark .cyno-loader-skip {
+  border-color: rgba(148, 163, 184, 0.22);
+  background: rgba(15, 23, 42, 0.6);
+  color: rgba(226, 232, 240, 0.75);
+}
+
+.cyno-loader.is-dark .cyno-loader-skip:hover {
+  background: rgba(30, 41, 59, 0.9);
+  color: #38BDF8;
+}
+
+.cyno-loader-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0%;
+  z-index: 5;
+  background: linear-gradient(90deg, #0070FF 0%, #38BDF8 100%);
+  box-shadow: 0 0 12px rgba(0, 112, 255, 0.65);
+  transition: width 0.12s linear;
+}
+
+@media (max-width: 640px) {
+.cyno-loader{font-family:'Inter',-apple-system,sans-serif}
+.cyno-loader-hint{position:absolute;z-index:6;bottom:22px;left:0;right:0;text-align:center;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(11,15,25,.45);opacity:0;animation:cynoLoaderWordIn .6s ease 1.2s forwards}
